@@ -6,8 +6,8 @@ export function NavBar() {
         </div>
         <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="about/">About</Link></li>
+                <li><Link key={"home"} href="/">Home</Link></li>
+                <li><Link key="about" href="/about/">About</Link></li>
             </ul>
         </div>
     </div>
