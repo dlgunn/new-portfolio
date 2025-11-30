@@ -56,6 +56,13 @@ export async function getPostData(id: string) {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     const matterResult = matter(fileContents);
+    const data = matterResult.data
+    const content = matterResult.content
+    if (!data.title) {
+            const firstLine = content.split('\n')[0].replace(/^#+\s/, '');
+            data.title = firstLine;
+            data.exceprt = content.split('\n')[1]
+        }
 
     const processedContent = await remark()
         .use(html)
@@ -64,7 +71,8 @@ export async function getPostData(id: string) {
     const contentHtml = processedContent.toString();
 
     return {
-        id,
+        title: matterResult.data.title,
+        description: matterResult.data.excerpt,
         contentHtml,
         ...matterResult.data,
     };

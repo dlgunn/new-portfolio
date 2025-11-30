@@ -18,14 +18,6 @@ interface PostMetadata {
     [key: string]: any;
 }
 
-const posts: Record<string, string> = {
-    post1: "Hey this is post 1",
-    post2: "Hey this is post 2",
-    post3: "Hey this is post 3",
-    post4: "Hey this is post 4"
-
-}
-
 export async function generateStaticParams() {
     const files = fs.readdirSync(postsDir);
 
@@ -47,7 +39,7 @@ export default async function BlogPost({ params }: PageProps) {
 
 export async function generateMetadata({ params }: PageProps) {
     const { slug } = await params;
-    const post = posts[slug]
+    const data = await getPostData(slug)
     if (!slug) {
         return {
             title: "Post not found",
@@ -56,7 +48,7 @@ export async function generateMetadata({ params }: PageProps) {
     }
 
     return {
-        title: "Fix this Later",
-        description: "Fix this Later",
+        title: data.title,
+        description: data.description,
     };
 }
