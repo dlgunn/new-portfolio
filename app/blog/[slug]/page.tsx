@@ -31,7 +31,7 @@ export async function generateStaticParams() {
 export default async function BlogPost({ params }: PageProps) {
     const { slug } = await params;
     const data = await getPostData(slug)
-    return <article className='prose prose-lg mx-auto max-w-2xl px-3 py-5'>
+    return <article className='prose prose-lg mx-auto max-w-2xl px-4 py-6'>
         <div dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
     </article>
 
