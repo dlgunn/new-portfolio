@@ -9,7 +9,7 @@ export function BlogsList() {
             {data.map((post, index) => (
                 <li key={index}
                     className="
-             rounded-lg p-4
+             rounded-lg p-2
               hover:bg-base-200
               cursor-hover
               transition-colors

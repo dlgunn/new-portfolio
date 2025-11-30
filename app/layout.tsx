@@ -26,7 +26,7 @@ export default function RootLayout({
     <html data-theme="nord" lang="en">
       <body>
         <NavBar></NavBar>
-        <main className="p-6 min-h-screen">
+        <main className="min-h-screen">
           {children}
         </main>
         <Footer></Footer>

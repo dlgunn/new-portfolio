@@ -1,3 +1,3 @@
 
 ## My Portfolio
-A portfolio/blog made with Next.js, tailwind, and DaisyUI
+A portfolio/blog made with Next.js, Tailwind, and DaisyUI
